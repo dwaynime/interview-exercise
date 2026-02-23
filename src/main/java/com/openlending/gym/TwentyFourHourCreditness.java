@@ -30,14 +30,5 @@ public class TwentyFourHourCreditness {
 
     System.out.println("Highest score bureau: " + highestBureau + " with score " + highestScore);
 
-    // TODO: create an implementation of CreditScoreService for Transunion
-
-    // TODO: output the credit score of your implementation above
-
-    // TODO - add functionality to CreditScoreServiceFactory to generate implementations of CreditScoreService
-
-    // TODO - using the CreditScoreServiceFactory output the credit bureau name and credit score for all CreditBureaus
-
-    // TODO - output the name of the credit bureau which returns the highest credit score
   }
 }
