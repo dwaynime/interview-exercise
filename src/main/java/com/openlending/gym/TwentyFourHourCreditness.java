@@ -1,6 +1,7 @@
 package com.openlending.gym;
-import com.openlending.credit.TransUnionService;
+import com.openlending.credit.CreditBureau;
 import com.openlending.credit.CreditScoreService;
+import com.openlending.credit.CreditScoreServiceFactory;
 
 public class TwentyFourHourCreditness {
 
@@ -10,10 +11,24 @@ public class TwentyFourHourCreditness {
     System.out.println("# All you need is a some java knowledge and a credit score.        #");
     System.out.println("####################################################################");
 
-    CreditScoreService transUnionService = new TransUnionService();
+    int highestScore = Integer.MIN_VALUE;
+    CreditBureau highestBureau = null;
 
-    System.out.println("Bureau: " + transUnionService.getCreditBureauName());
-    System.out.println("Score: " + transUnionService.getCreditScore());
+    for (CreditBureau bureau : CreditBureau.values()) {
+
+      CreditScoreService service = CreditScoreServiceFactory.getCreditScoreService(bureau);
+
+      System.out.println("Bureau: " + service.getCreditBureauName());
+      System.out.println("Score: " + service.getCreditScore());
+      System.out.println("-----------------------------");
+
+      if (service.getCreditScore() > highestScore) {
+        highestScore = service.getCreditScore();
+        highestBureau = service.getCreditBureauName();
+      }
+    }
+
+    System.out.println("Highest score bureau: " + highestBureau + " with score " + highestScore);
 
     // TODO: create an implementation of CreditScoreService for Transunion
 
