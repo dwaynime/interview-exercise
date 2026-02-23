@@ -1,4 +1,6 @@
 package com.openlending.gym;
+import com.openlending.credit.TransUnionService;
+import com.openlending.credit.CreditScoreService;
 
 public class TwentyFourHourCreditness {
 
@@ -7,6 +9,11 @@ public class TwentyFourHourCreditness {
     System.out.println("# Welcome to 24 Hour Creditness! Apply for a membership today!     #");
     System.out.println("# All you need is a some java knowledge and a credit score.        #");
     System.out.println("####################################################################");
+
+    CreditScoreService transUnionService = new TransUnionService();
+
+    System.out.println("Bureau: " + transUnionService.getCreditBureauName());
+    System.out.println("Score: " + transUnionService.getCreditScore());
 
     // TODO: create an implementation of CreditScoreService for Transunion
 
